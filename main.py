@@ -17,7 +17,7 @@ os.makedirs(log_dir, exist_ok=True)
 
 def train(env, sb3_algo):
     if sb3_algo == 'SAC':
-        model = SAC('MlpPolicy', env, verbose=1, device='gpu', tensorboard_log=log_dir,learning_rate=0.01)
+        model = SAC('MlpPolicy', env, verbose=1, device='gpu', tensorboard_log=log_dir,learning_rate=0.01,buffer_size=1000)
     elif sb3_algo == 'TD3':
         model = TD3('MlpPolicy', env, verbose=1, device='gpu', tensorboard_log=log_dir)
     elif sb3_algo == 'A2C':
